@@ -321,7 +321,7 @@ function fishSVG(x,y,fishWidth, fishHeight, centerY){
         // .attr("viewBox", [x-fishHeight/2, y-fishHeight/2, x+fishWidth, y+fishHeight])
         .attr("width", fishWidth)
         .attr("height", fishHeight)
-        .attr("transform", `translate(0,${paddingTop})`)
+        // .attr("transform", `translate(0,${paddingTop})`)
         .style("border", "none");
 
     //helper function to turn points in a list into string
