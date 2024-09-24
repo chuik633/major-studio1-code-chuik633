@@ -119,7 +119,12 @@ body{
     /* width:300px !important; */
     height: fit-content;
 }
-
+canvas{
+    position: absolute;
+    top: 120px;
+    mix-blend-mode: lighten;
+    z-index: 10;
+}
 .card{
     width: 100%;
     width:500px !important;
