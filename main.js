@@ -124,25 +124,25 @@ d3.json("./data/data.json").then(data => {
         const prevPadding = Math.abs(nearestPlotDepthY-prevPlotY)/2
         const nextPadding = Math.abs(nextPlotDepthY - nearestPlotDepthY)/2
         const areaHeight2 = Math.abs(nextPlotDepthY-prevPlotY)-nextPadding-prevPadding
-        const areaTopY = prevPlotY + prevPadding
-        d3.select("#hover-area").attr('style', `top:${areaTopY}px; height:${areaHeight2}px;`).style("transform", `translate(0px, ${paddingTop}px)`);
+        const areaTopY = prevPlotY + prevPadding 
+        d3.select("#hover-area").attr('style', `top:${areaTopY + paddingTop}px; height:${areaHeight2}px;`);
       
         //adjust the hover line, dot, and text
-        d3.select("#hover-line").attr('style', `left:${closestLengthX}px`).style("transform", `translate(0px, ${paddingTop}px)`);
+        d3.select("#hover-line").attr('style', `left:${closestLengthX}px`);
         d3.select("#hover-text")
                 .attr('style', 
-                    `top:${nearestPlotDepthY - 80}px; 
-                    left:${closestLengthX - 50}px`).style("transform", `translate(0px, ${paddingTop}px)`);
+                    `top:${nearestPlotDepthY - 80 + paddingTop}px; 
+                    left:${closestLengthX - 50}px`)
         d3.select("#hover-text-depth").html(`↓ ${Math.round(nearestPlotDepthVal)} m`)
         d3.select("#hover-text-length").html(`${Math.round(xScale.invert(mouseX))} mm long`)
 
-        d3.select("#hover-dot").attr('style', `top:${nearestPlotDepthY - 5}px; left:calc(${closestLengthX}px - 5px)`).style("transform", `translate(0px, ${paddingTop}px)`);
+        d3.select("#hover-dot").attr('style', `top:${nearestPlotDepthY - 5 + paddingTop}px; left:calc(${closestLengthX}px - 5px)`);
 
         //display the hover fish
         const midPoint = nearestPlotDepthY - areaTopY
         
         // if(closestLengthX > allData[nearestPlotDepthVal].data)
-        fishSVG(0,areaTopY,closestLengthX, areaHeight2, midPoint)
+        fishSVG(0,areaTopY + paddingTop,closestLengthX, areaHeight2, midPoint)
 
 
         // highlightRange("100")
